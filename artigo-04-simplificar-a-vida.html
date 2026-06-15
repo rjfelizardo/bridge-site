@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como Simplificar sua Vida e Encontrar Mais Leveza Todos os Dias | Biblioteca Bridge</title>
+<meta name="description" content="Uma reflexão profunda sobre como eliminar excessos e criar espaço para o que realmente importa.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #1E2D3D;
+  --navy2:  #2C4158;
+  --sand:   #C8B89A;
+  --sand2:  #E8DDD0;
+  --cream:  #F5F0E8;
+  --white:  #FDFCFA;
+  --text:   #2A2A2A;
+  --muted:  #7A7068;
+  --radius: 16px;
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* ── Nav ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  padding: 14px 5%;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(253,252,250,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,184,154,.2);
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600;
+  letter-spacing: .12em; color: var(--navy);
+  text-decoration: none;
+}
+.logo span { color: var(--sand); }
+header a.voltar {
+  font-size: .75rem; font-weight: 500; letter-spacing: .03em;
+  color: var(--muted); text-decoration: none;
+  text-transform: uppercase; transition: color var(--transition);
+}
+header a.voltar:hover { color: var(--navy); }
+
+/* ── Conteúdo ── */
+.container {
+  max-width: 760px; margin: 0 auto; padding: 0 6%;
+}
+
+.hero {
+  text-align: center; padding: 70px 0 50px;
+}
+.tag {
+  font-size: .75rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--sand);
+  margin-bottom: 16px; display: inline-block;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 300; line-height: 1.15;
+  color: var(--navy);
+}
+
+article { padding-bottom: 80px; }
+
+article h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 600;
+  color: var(--navy);
+  margin: 44px 0 16px;
+}
+article p {
+  font-size: 1rem; color: var(--text);
+  margin-bottom: 16px; font-weight: 300;
+}
+article ul {
+  list-style: none; margin: 0 0 16px;
+}
+article ul li {
+  padding: 10px 0 10px 28px;
+  border-bottom: 1px solid var(--sand2);
+  font-size: 1rem; color: var(--text);
+  position: relative;
+}
+article ul li::before {
+  content: '';
+  position: absolute; left: 6px; top: 19px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--sand);
+}
+article ul li:last-child { border-bottom: none; }
+
+article p strong { color: var(--navy); font-weight: 600; }
+
+/* ── CTA ── */
+.cta {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 44px 36px;
+  margin-top: 48px;
+  text-align: center;
+}
+.cta h2 { margin-top: 0; }
+.cta p {
+  color: var(--muted); max-width: 460px;
+  margin: 0 auto 28px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px;
+  font-family: 'Inter', sans-serif; font-size: .85rem;
+  font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+  border: none; border-radius: 50px; cursor: pointer;
+  text-decoration: none; transition: all var(--transition);
+  background: var(--navy); color: #fff;
+}
+.btn:hover { background: var(--navy2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(30,45,61,.25); }
+
+/* ── Footer ── */
+footer {
+  background: var(--navy); color: rgba(255,255,255,.6);
+  padding: 50px 7%; text-align: center;
+}
+footer .logo { color: #fff; display: block; margin-bottom: 8px; }
+footer p { font-size: .82rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">BRIDGE<span>.</span></a>
+  <a href="index.html#biblioteca" class="voltar">← Voltar à Biblioteca</a>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <span class="tag">Biblioteca Bridge · Simplicidade</span>
+    <h1>Como Simplificar sua Vida e Encontrar Mais Leveza Todos os Dias</h1>
+  </div>
+
+  <article>
+    <h2>A vida ficou mais complicada do que deveria?</h2>
+    <p>Em algum momento da jornada, muitas pessoas percebem algo curioso: a vida que imaginaram construir para ter mais liberdade acabou se transformando em uma fonte constante de pressão.</p>
+    <p>A agenda está cheia. A mente está cheia. A casa está cheia. O celular está cheio. As responsabilidades parecem se multiplicar. E, mesmo quando tudo aparentemente está funcionando, existe uma sensação silenciosa de exaustão — como se a vida tivesse se tornado pesada demais.</p>
+    <p>Talvez você conheça essa sensação. Talvez esteja cansada de correr sem sentir que está realmente chegando a algum lugar. Talvez esteja desejando algo simples: respirar com mais tranquilidade, ter mais tempo, sentir mais presença, viver com mais leveza.</p>
+    <p>A boa notícia é que essa leveza não depende de uma mudança radical. Ela começa quando você aprende a simplificar.</p>
+
+    <h2>O problema não é falta de capacidade</h2>
+    <p>Quando nos sentimos sobrecarregados, costumamos acreditar que precisamos ser mais produtivos, mais organizados, mais disciplinados, mais eficientes. Mas nem sempre esse é o verdadeiro problema.</p>
+    <p>Muitas vezes não estamos sofrendo por falta de capacidade. Estamos sofrendo por excesso — excesso de compromissos, de informações, de expectativas, de preocupações, de coisas. E nenhum sistema de produtividade consegue resolver um problema de excesso.</p>
+
+    <h2>A cultura do "mais"</h2>
+    <p>Vivemos em uma sociedade que associa crescimento ao acúmulo: mais bens, mais conquistas, mais atividades, mais metas, mais resultados, mais reconhecimento. A mensagem é repetida diariamente — produzir mais, ter mais, conquistar mais.</p>
+    <p>Mas raramente ouvimos uma pergunta importante: a que custo? Porque existe um ponto em que o excesso deixa de gerar satisfação e começa a gerar desgaste.</p>
+
+    <h2>O peso invisível que carregamos</h2>
+    <p>Nem todo peso pode ser visto. Alguns dos maiores fardos são invisíveis: compromissos assumidos por obrigação, expectativas criadas por outras pessoas, preocupações que nunca se concretizam, objetos acumulados, relações desgastantes, pensamentos repetitivos.</p>
+    <p>Tudo isso ocupa espaço. E quanto mais espaço ocupam, menos espaço sobra para aquilo que realmente importa.</p>
+
+    <h2>O que significa simplificar?</h2>
+    <p>Simplificar não é desistir dos seus sonhos, não é abandonar responsabilidades, não é viver com o mínimo possível.</p>
+    <p>Simplificar significa remover aquilo que não contribui para a vida que você deseja construir. É criar espaço para o essencial, trocar quantidade por qualidade e escolher conscientemente onde investir seu tempo, energia e atenção.</p>
+
+    <h2>A simplificação começa pela consciência</h2>
+    <p>Antes de mudar qualquer coisa, é necessário enxergar. Pare por alguns minutos e reflita: o que está consumindo sua energia hoje? Quais atividades drenam mais do que contribuem? Quais compromissos existem apenas porque você se acostumou a mantê-los? Quais preocupações ocupam espaço sem oferecer soluções?</p>
+    <p>A clareza é sempre o primeiro passo da transformação.</p>
+
+    <h2>Simplificando a agenda</h2>
+    <p>A agenda costuma ser um dos maiores focos de sobrecarga. Muitas pessoas vivem como se cada minuto precisasse estar preenchido. Mas uma agenda cheia não significa uma vida significativa — significa apenas uma agenda cheia.</p>
+    <p>Antes de aceitar novos compromissos, faça uma pergunta simples: "isso está alinhado com a vida que desejo construir?" Se a resposta for não, talvez seja hora de reconsiderar. Cada compromisso aceito ocupa um espaço que não poderá ser utilizado para outra coisa.</p>
+
+    <h2>Simplificando o ambiente</h2>
+    <p>Os espaços onde vivemos influenciam profundamente nosso estado emocional. Ambientes sobrecarregados geram estímulos constantes: objetos acumulados exigem atenção, bagunça gera ruído mental.</p>
+    <p>Por isso simplificar o ambiente produz um efeito que vai muito além da estética. Quando existe mais espaço físico, frequentemente também existe mais espaço emocional. Não se trata de ter pouco — trata-se de manter apenas aquilo que possui propósito.</p>
+
+    <h2>Simplificando a mente</h2>
+    <p>Talvez esta seja a simplificação mais importante de todas. Nossa mente produz milhares de pensamentos diariamente, e nem todos merecem atenção, precisam ser seguidos ou representam a realidade.</p>
+    <p>Muitas vezes carregamos preocupações sobre situações que nunca acontecerão, revivemos erros antigos, antecipamos problemas futuros — e acabamos perdendo contato com o presente. Simplificar a mente significa aprender a distinguir o que é útil daquilo que apenas gera desgaste.</p>
+
+    <h2>Simplificando relacionamentos</h2>
+    <p>Nem toda conexão fortalece. Algumas drenam, exigem mais do que oferecem, alimentam inseguranças. Simplificar também significa avaliar quais relações contribuem para seu crescimento e bem-estar.</p>
+    <p>Isso não significa abandonar pessoas. Significa estabelecer limites saudáveis, preservar sua energia e cultivar vínculos que tragam reciprocidade e apoio.</p>
+
+    <h2>O poder transformador do "não"</h2>
+    <p>Uma das ferramentas mais importantes da simplificação é uma palavra pequena: não. Não para um compromisso, não para uma obrigação desnecessária, não para expectativas que não fazem sentido, não para demandas que ultrapassam seus limites.</p>
+    <p>Cada não consciente cria espaço para um sim mais importante.</p>
+
+    <h2>Pequenas escolhas, grandes transformações</h2>
+    <p>Muitas pessoas imaginam que uma vida mais leve exige mudanças radicais. Mas a realidade costuma ser diferente — a transformação acontece através de pequenas escolhas repetidas diariamente: uma gaveta organizada, uma tarefa eliminada, um limite estabelecido, uma pausa respeitada, um compromisso recusado, um momento de silêncio.</p>
+    <p>Pequenas decisões criam grandes resultados quando se acumulam ao longo do tempo.</p>
+
+    <h2>A diferença entre existir e viver</h2>
+    <p>Existe uma diferença importante entre sobreviver aos dias e viver plenamente. Sobreviver é apenas cumprir tarefas. Viver é experimentar presença, perceber os momentos, ter energia para aquilo que realmente importa e encontrar significado nas experiências cotidianas.</p>
+    <p>E isso se torna muito mais difícil quando estamos carregando pesos desnecessários.</p>
+
+    <h2>A leveza não está do outro lado da perfeição</h2>
+    <p>Muitas pessoas acreditam que serão felizes quando tudo estiver resolvido — quando a casa estiver perfeita, quando a agenda estiver vazia, quando os problemas desaparecerem. Mas a vida não funciona assim. Sempre existirão desafios e responsabilidades.</p>
+    <p>A leveza não nasce da ausência de problemas. Ela nasce da forma como escolhemos carregar aquilo que realmente importa.</p>
+
+    <h2>A travessia começa dentro de você</h2>
+    <p>Toda travessia começa com uma decisão: a decisão de parar, observar, refletir e escolher um caminho diferente. Você não precisa transformar sua vida inteira hoje, não precisa resolver tudo de uma vez, não precisa ter todas as respostas. Basta dar o próximo passo.</p>
+    <p>Talvez seja organizar um espaço. Talvez seja dizer não para algo que já não faz sentido. Talvez seja criar um momento de pausa em um dia corrido. Talvez seja simplesmente respirar mais fundo.</p>
+    <p>Porque a vida mais leve que você procura não está em algum lugar distante. Ela começa nas escolhas que você faz hoje — uma escolha de cada vez, um passo de cada vez, uma travessia de cada vez. E quando você olha para trás, percebe que não mudou apenas sua rotina. Mudou a forma como vive.</p>
+
+    <div class="cta">
+      <h2>Em que etapa da sua travessia você está?</h2>
+      <p>Faça o Diagnóstico Bridge e descubra o próximo passo da sua jornada.</p>
+      <a href="index.html#contato" class="btn">Quero Fazer Meu Diagnóstico</a>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <a href="index.html" class="logo">BRIDGE<span style="color:var(--sand)">.</span></a>
+  <p>© 2025 Bridge. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
