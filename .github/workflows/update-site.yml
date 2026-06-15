@@ -1,0 +1,30 @@
+name: Update Site
+
+on:
+  workflow_dispatch:
+    inputs:
+      html_content:
+        description: 'Novo conteúdo do index.html'
+        required: true
+        type: string
+      commit_message:
+        description: 'Mensagem do commit'
+        required: false
+        default: 'Atualização via Bridge Agent'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Atualizar index.html
+        run: echo "${{ github.event.inputs.html_content }}" > index.html
+
+      - name: Commit e Push
+        run: |
+          git config user.name "Bridge Agent"
+          git config user.email "agent@bridge.com"
+          git add index.html
+          git commit -m "${{ github.event.inputs.commit_message }}"
+          git push
