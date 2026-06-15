@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridge Admin</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Inter,sans-serif;background:#F5F0E8;min-height:100vh;}
+.header{background:#1E2D3D;padding:16px 24px;display:flex;align-items:center;gap:12px;}
+.logo{color:#fff;font-weight:700;font-size:1.1rem;letter-spacing:.12em;}
+.logo span{color:#C8B89A;}
+.badge{background:rgba(200,184,154,.2);border:1px solid rgba(200,184,154,.3);color:#C8B89A;font-size:.68rem;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.1em;text-transform:uppercase;}
+.container{max-width:700px;margin:32px auto;padding:0 20px;}
+.card{background:#FDFCFA;border:1px solid #E8DDD0;border-radius:16px;padding:24px;margin-bottom:20px;}
+.card-title{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1E2D3D;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+textarea{width:100%;background:#F5F0E8;border:1.5px solid #E8DDD0;border-radius:10px;padding:12px;font-family:Inter,sans-serif;font-size:.84rem;color:#2A2A2A;resize:vertical;min-height:120px;outline:none;}
+textarea:focus{border-color:#C8B89A;}
+input[type=text]{width:100%;background:#F5F0E8;border:1.5px solid #E8DDD0;border-radius:10px;padding:10px 14px;font-family:Inter,sans-serif;font-size:.84rem;color:#2A2A2A;outline:none;margin-bottom:12px;}
+input:focus{border-color:#C8B89A;}
+.btn{background:#1E2D3D;color:#fff;border:none;border-radius:50px;padding:12px 28px;font-size:.84rem;font-weight:600;cursor:pointer;letter-spacing:.05em;transition:background .2s;margin-top:12px;}
+.btn:hover{background:#2C4158;}
+.btn:disabled{background:#E8DDD0;cursor:not-allowed;}
+.btn-outline{background:transparent;color:#1E2D3D;border:1.5px solid #1E2D3D;margin-left:10px;}
+.btn-outline:hover{background:#1E2D3D;color:#fff;}
+.result{margin-top:16px;padding:14px;border-radius:10px;font-size:.82rem;line-height:1.6;display:none;}
+.result.success{background:#d4edda;border:1px solid #7cb99a;color:#155724;}
+.result.error{background:#f8d7da;border:1px solid #e07070;color:#721c24;}
+.result.info{background:#E8DDD0;border:1px solid #C8B89A;color:#1E2D3D;}
+label{font-size:.76rem;font-weight:600;color:#1E2D3D;display:block;margin-bottom:6px;}
+.hint{font-size:.7rem;color:#7A7068;margin-bottom:8px;}
+.loading{display:none;color:#7A7068;font-size:.8rem;margin-top:10px;}
+pre{white-space:pre-wrap;font-family:'SF Mono',monospace;font-size:.72rem;max-height:200px;overflow-y:auto;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">BRIDGE<span>.</span></div>
+  <div class="badge">Admin</div>
+</div>
+
+<div class="container">
+
+  <!-- Ver código -->
+  <div class="card">
+    <div class="card-title">👁️ Ver código atual</div>
+    <button class="btn" onclick="verCodigo()">Carregar index.html</button>
+    <div class="loading" id="load-ver">Carregando...</div>
+    <div class="result info" id="result-ver"><pre id="codigo-atual"></pre></div>
+  </div>
+
+  <!-- Editar site -->
+  <div class="card">
+    <div class="card-title">✏️ Editar site</div>
+    <label>Mensagem do commit</label>
+    <input type="text" id="commit-msg" value="Atualização via Bridge Admin" />
+    <label>HTML completo</label>
+    <div class="hint">Cole aqui o HTML completo do index.html atualizado</div>
+    <textarea id="html-content" placeholder="Cole o HTML completo aqui..."></textarea>
+    <div>
+      <button class="btn" onclick="editarSite()">Publicar no site</button>
+      <button class="btn btn-outline" onclick="carregarParaEditar()">Carregar atual para editar</button>
+    </div>
+    <div class="loading" id="load-edit">Publicando...</div>
+    <div class="result" id="result-edit"></div>
+  </div>
+
+</div>
+
+<script>
+async function verCodigo() {
+  const btn = event.target;
+  const load = document.getElementById('load-ver');
+  const result = document.getElementById('result-ver');
+  btn.disabled = true;
+  load.style.display = 'block';
+  result.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/github', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({action:'ver_codigo'})
+    });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('codigo-atual').textContent = data.content.slice(0, 2000) + '...';
+      result.style.display = 'block';
+    } else {
+      alert('Erro: ' + data.error);
+    }
+  } catch(e) {
+    alert('Erro: ' + e.message);
+  } finally {
+    btn.disabled = false;
+    load.style.display = 'none';
+  }
+}
+
+async function carregarParaEditar() {
+  const btn = event.target;
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/github', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({action:'ver_codigo'})
+    });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('html-content').value = data.content;
+      alert('HTML carregado! Faça suas edições e clique em Publicar.');
+    } else {
+      alert('Erro: ' + data.error);
+    }
+  } catch(e) {
+    alert('Erro: ' + e.message);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function editarSite() {
+  const html = document.getElementById('html-content').value.trim();
+  const msg  = document.getElementById('commit-msg').value.trim();
+  const btn  = event.target;
+  const load = document.getElementById('load-edit');
+  const result = document.getElementById('result-edit');
+
+  if (!html) return alert('Cole o HTML antes de publicar!');
+
+  btn.disabled = true;
+  load.style.display = 'block';
+  result.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/github', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({action:'editar_site', html, commit_message: msg})
+    });
+    const data = await res.json();
+    result.className = 'result ' + (data.success ? 'success' : 'error');
+    result.textContent = data.message || data.error;
+    result.style.display = 'block';
+  } catch(e) {
+    result.className = 'result error';
+    result.textContent = 'Erro: ' + e.message;
+    result.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    load.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
