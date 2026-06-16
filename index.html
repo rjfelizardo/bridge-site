@@ -838,6 +838,7 @@ async function bridgeEnviar() {
 }
 </script>
 
+
 <!-- ═══════════════════════════ FUNDADOR ═══════════════════════════ -->
 <section id="fundador" style="background: var(--cream); padding: 110px 7%;">
 
@@ -846,7 +847,7 @@ async function bridgeEnviar() {
     <!-- Foto -->
     <div>
       <img src="fundador.jpg" alt="Rodrigo, fundador do Bridge"
-        style="width:100%; border-radius:var(--radius); box-shadow:0 24px 70px rgba(30,45,61,.15); object-fit:cover; aspect-ratio:3/4; display:block;" />
+        style="width:100%; border-radius:var(--radius); box-shadow:0 24px 70px rgba(30,45,61,.15); object-fit:cover; object-position:top center; aspect-ratio:3/4; display:block;" />
     </div>
 
     <!-- Texto -->
@@ -888,12 +889,14 @@ async function bridgeEnviar() {
     gap: 36px !important;
   }
   .fundador-grid > div:first-child img {
-    aspect-ratio: 4/3 !important;
-    max-width: 420px;
+    aspect-ratio: 3/4 !important;
+    object-position: top center !important;
+    max-width: 320px;
     margin: 0 auto;
   }
 }
 </style>
+
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
 <footer>
