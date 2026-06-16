@@ -269,6 +269,8 @@ h2.display {
   background: var(--cream); border-radius: var(--radius);
   padding: 36px 28px; text-align: center;
   transition: all var(--transition);
+  display: flex; flex-direction: column;
+}
 }
 .cards-grid .card:hover {
   transform: translateY(-4px);
@@ -281,6 +283,8 @@ h2.display {
 }
 .cards-grid .card p {
   font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px;
+  flex-grow: 1;
+}
 }
 .cards-grid .card .btn {
   font-size: .75rem; padding: 10px 22px;
