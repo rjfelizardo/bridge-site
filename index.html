@@ -1089,5 +1089,15 @@ window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
 });
 </script>
+  <script>
+  if (window.location.hash) {
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }, 100);
+    });
+  }
+</script>
 </body>
 </html>
