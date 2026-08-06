@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Você foi convidada — Bridge, A Travessia</title>
+<meta name="robots" content="noindex">
+<style>
+  :root{
+    --cream:#F5F0E8;
+    --navy:#1E2D3D;
+    --navy-soft:#2C4158;
+    --sand:#C8B89A;
+    --gold:#B98D3E;
+    --line:rgba(30,45,61,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--cream);
+    color:var(--navy);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .card{
+    width:100%;
+    max-width:420px;
+    text-align:center;
+  }
+  .mark{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:4px;
+    color:var(--navy-soft);
+    text-transform:uppercase;
+    margin-bottom:28px;
+  }
+  .bridge{
+    max-width:160px;
+    max-height:70px;
+    width:auto;
+    height:auto;
+    margin:0 auto 28px;
+    display:block;
+    opacity:.9;
+  }
+  h1{
+    font-size:26px;
+    line-height:1.3;
+    font-weight:800;
+    margin:0 0 10px;
+    letter-spacing:-.3px;
+  }
+  p.lead{
+    font-size:15px;
+    color:var(--navy-soft);
+    line-height:1.5;
+    margin:0 0 32px;
+  }
+  .code-box{
+    background:#fff;
+    border:1.5px solid var(--line);
+    border-radius:18px;
+    padding:22px 20px;
+    margin-bottom:18px;
+  }
+  .code-label{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--navy-soft);
+    opacity:.75;
+    margin-bottom:10px;
+  }
+  .code{
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:8px;
+    color:var(--navy);
+    margin:0 0 14px;
+    word-break:break-all;
+  }
+  button, a.btn{
+    display:block;
+    width:100%;
+    border:none;
+    border-radius:50px;
+    padding:16px 20px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    box-sizing:border-box;
+    transition:transform .12s ease, opacity .12s ease;
+  }
+  button:active, a.btn:active{ transform:scale(.98); }
+  .btn-copy{
+    background:var(--cream);
+    color:var(--navy);
+    border:1.5px solid var(--navy);
+  }
+  .btn-primary{
+    background:var(--navy);
+    color:#fff;
+    margin-top:14px;
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--navy-soft);
+    font-weight:600;
+    font-size:13px;
+    margin-top:18px;
+    text-decoration:underline;
+    padding:6px;
+  }
+  .toast{
+    position:fixed;
+    left:50%;
+    bottom:32px;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--navy);
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    padding:12px 20px;
+    border-radius:50px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+  .steps{
+    text-align:left;
+    margin-top:32px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+  }
+  .steps-title{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--navy-soft);
+    opacity:.75;
+    margin-bottom:14px;
+  }
+  .step{
+    display:flex;
+    gap:12px;
+    margin-bottom:14px;
+    font-size:14px;
+    line-height:1.5;
+    color:var(--navy);
+  }
+  .step-num{
+    flex-shrink:0;
+    width:22px;
+    height:22px;
+    border-radius:50%;
+    background:var(--sand);
+    color:var(--navy);
+    font-size:11px;
+    font-weight:800;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  #noCode{ display:none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="mark">BRIDGE — A TRAVESSIA</div>
+
+  <img class="bridge" src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/Logo_bridge.png" alt="Bridge">
+
+  <!-- Ícone de ponte pênsil como reserva, caso a imagem acima não carregue.
+       Pra usar essa versão desenhada em vez da logo, apague a <img> acima e
+       descomente o SVG abaixo. -->
+  <!--
+  <svg class="bridge" viewBox="0 0 240 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 62 Q120 8 232 62" stroke="#B98D3E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <line x1="60" y1="18" x2="60" y2="80" stroke="#1E2D3D" stroke-width="3" stroke-linecap="round"/>
+    <line x1="180" y1="18" x2="180" y2="80" stroke="#1E2D3D" stroke-width="3" stroke-linecap="round"/>
+    <line x1="30" y1="52" x2="30" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="45" y1="34" x2="45" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="75" y1="26" x2="75" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="95" y1="17" x2="95" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="120" y1="13" x2="120" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="145" y1="17" x2="145" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="165" y1="26" x2="165" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="195" y1="34" x2="195" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="210" y1="52" x2="210" y2="72" stroke="#1E2D3D" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="4" y1="72" x2="236" y2="72" stroke="#1E2D3D" stroke-width="3.5" stroke-linecap="round"/>
+  </svg>
+  -->
+
+  <div id="withCode">
+    <h1>Uma amiga te convidou para A Travessia 🌿</h1>
+    <p class="lead">Use o código abaixo no cadastro do app e comecem essa jornada juntas.</p>
+
+    <div class="code-box">
+      <div class="code-label">Seu código de convite</div>
+      <div class="code" id="codeText">——————</div>
+      <button class="btn-copy" onclick="copyCode()">Copiar código</button>
+    </div>
+
+    <a class="btn btn-primary" id="downloadBtn" href="#">Baixar o app e usar o código</a>
+    <button class="btn-ghost" onclick="tryOpenApp()">Já tenho o app instalado</button>
+
+    <div class="steps">
+      <div class="steps-title">Como usar</div>
+      <div class="step"><div class="step-num">1</div><div>Baixe o app Bridge — A Travessia na Play Store.</div></div>
+      <div class="step"><div class="step-num">2</div><div>Na tela de cadastro, cole seu código no campo "Código de quem te indicou".</div></div>
+      <div class="step"><div class="step-num">3</div><div>Pronto — vocês duas já estão conectadas na travessia.</div></div>
+    </div>
+  </div>
+
+  <div id="noCode">
+    <h1>Bridge — A Travessia</h1>
+    <p class="lead">Esse link de convite não é válido. Peça pra sua amiga te reenviar o link certinho, ou baixe o app direto.</p>
+    <a class="btn btn-primary" id="downloadBtnFallback" href="#">Baixar o app</a>
+  </div>
+</div>
+
+<div class="toast" id="toast">Código copiado!</div>
+
+<script>
+  // ── CONFIGURAÇÃO ──
+  // Troque pelo link real da Play Store quando o app sair do teste fechado.
+  // Enquanto estiver em teste fechado, use o link de opt-in de teste (Play Console → Teste fechado → link de teste).
+  var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.bridge.atravessia';
+  var APP_SCHEME = 'bridgeatravessia://convite/';
+
+  // Extrai o código do fim da URL (/convite/ABC123)
+  var parts = window.location.pathname.split('/').filter(Boolean);
+  var code = (parts[parts.length - 1] || '').toUpperCase();
+  var isValid = /^[A-Z0-9]{4,8}$/.test(code);
+
+  if (isValid) {
+    document.getElementById('codeText').textContent = code;
+    document.getElementById('downloadBtn').href = PLAY_STORE_URL;
+    document.getElementById('downloadBtn').addEventListener('click', function(){
+      // dá uma segunda chance de abrir o app antes de ir pra loja, caso já esteja instalado
+      tryOpenApp();
+    });
+
+    // Se quem abriu o link já tem o app instalado, o esquema abre direto (silencioso se não tiver)
+    setTimeout(tryOpenApp, 300);
+  } else {
+    document.getElementById('withCode').style.display = 'none';
+    document.getElementById('noCode').style.display = 'block';
+    document.getElementById('downloadBtnFallback').href = PLAY_STORE_URL;
+  }
+
+  function tryOpenApp(){
+    if (!isValid) return;
+    window.location.href = APP_SCHEME + code;
+  }
+
+  function copyCode(){
+    navigator.clipboard.writeText(code).then(function(){
+      var t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(function(){ t.classList.remove('show'); }, 1800);
+    }).catch(function(){
+      // fallback pra navegadores sem clipboard API
+      var el = document.createElement('textarea');
+      el.value = code;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    });
+  }
+</script>
+
+</body>
+</html>
