@@ -397,7 +397,6 @@ h2.display {
   transition: all var(--transition);
   display: flex; flex-direction: column;
 }
-}
 .cards-grid .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(30,45,61,.1);
@@ -410,7 +409,6 @@ h2.display {
 .cards-grid .card p {
   font-size: .85rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px;
   flex-grow: 1;
-}
 }
 .cards-grid .card .btn {
   font-size: .75rem; padding: 10px 22px;
@@ -606,6 +604,36 @@ input:focus { border-color: var(--navy); }
   .app-section { grid-template-columns: 1fr; }
   .modal { padding: 36px 24px; margin: 16px; }
   footer { gap: 6px; padding: 20px 6% 16px; }
+
+  /* ── Parallax compartilhado no mobile (sem position:fixed, via JS) ── */
+  .travessia, .metodo, .biblioteca {
+    background-image: url('https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-hero.jpg');
+    background-size: cover;
+    background-position: center 0px;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  .travessia { background-color: var(--navy); }
+  .metodo { background-color: var(--cream); }
+  .biblioteca { background-color: var(--white); }
+
+  .travessia::after,
+  .metodo::after,
+  .biblioteca::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .travessia::after { background: rgba(30,45,61,.86); }
+  .metodo::after { background: rgba(245,240,232,.92); }
+  .biblioteca::after { background: rgba(253,252,250,.94); }
+
+  .travessia > *, .metodo > *, .biblioteca > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 @media (max-width: 480px) {
@@ -672,7 +700,7 @@ input:focus { border-color: var(--navy); }
 <section class="hero">
   <div class="hero-text">
     <p class="eyebrow">Mentoria · Transformação · Comunidade</p>
-    <h1>A ponte entre o caos e uma vida <em>mais leve.</em></h1>
+    <h1>A ponte entre a sobrecarga e uma vida <em>mais leve.</em></h1>
     <p class="hero-sub">
       Bridge é uma plataforma de mentoria em áreas específicas. A Bridge traz o método A Travessia, que te acompanha em uma jornada de transformação. Nós te ajudamos a chegar até o outro lado e encontrar a pessoa que você realmente deseja ser.
     </p>
@@ -1063,6 +1091,47 @@ window.addEventListener('scroll', () => {
       }, 100);
     });
   }
+</script>
+
+<!-- ═══════════════════════════ PARALLAX MOBILE (JS, sem position:fixed) ═══════════════════════════ -->
+<script>
+(function() {
+  var parallaxTargets = null;
+  var ticking = false;
+  var PARALLAX_FACTOR = 0.28; // quanto menor, mais sutil o efeito
+
+  function getTargets() {
+    if (!parallaxTargets) {
+      parallaxTargets = Array.prototype.slice.call(
+        document.querySelectorAll('.travessia, .metodo, .biblioteca')
+      );
+    }
+    return parallaxTargets;
+  }
+
+  function updateParallax() {
+    ticking = false;
+    if (window.innerWidth >= 900) return; // desktop já usa o parallax fixo em CSS
+    var targets = getTargets();
+    for (var i = 0; i < targets.length; i++) {
+      var rect = targets[i].getBoundingClientRect();
+      var offset = Math.round(rect.top * PARALLAX_FACTOR);
+      targets[i].style.backgroundPosition = 'center ' + offset + 'px';
+    }
+  }
+
+  function onScrollOrResize() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScrollOrResize, { passive: true });
+  window.addEventListener('resize', onScrollOrResize);
+  window.addEventListener('load', updateParallax);
+  updateParallax();
+})();
 </script>
 
 <!-- ═══════════════ BOTÃO FLUTUANTE WHATSAPP ═══════════════ -->
