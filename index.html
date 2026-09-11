@@ -164,6 +164,10 @@ nav a:hover { color: var(--navy); }
 
 .hero-text { max-width: 580px; position: relative; z-index: 1; }
 
+@media (min-width: 900px) {
+  .hero { background-attachment: fixed; }
+}
+
 .eyebrow {
   font-size: .78rem; font-weight: 600; letter-spacing: .18em;
   text-transform: uppercase; color: var(--sand);
@@ -591,8 +595,8 @@ input:focus { border-color: var(--navy); }
 @media (max-width: 900px) {
   nav { display: none; }
   .hamburger { display: flex; }
-  .hero { padding: 120px 6% 70px; background-position: 65% center; flex-direction: column; align-items: flex-start; gap: 48px; }
-  .hero::before { background: linear-gradient(180deg, rgba(30,45,61,.55) 0%, rgba(30,45,61,.9) 65%, rgba(30,45,61,.95) 100%); }
+  .hero { padding: 120px 6% 70px; background-position: 38% center; flex-direction: column; align-items: flex-start; gap: 48px; }
+  .hero::before { background: linear-gradient(180deg, rgba(30,45,61,.6) 0%, rgba(30,45,61,.9) 65%, rgba(30,45,61,.95) 100%); }
   .hero-app { position: static; width: 100%; max-width: 280px; margin: 0 auto; }
   .banks { grid-template-columns: 1fr; }
   .bridge-arrow { transform: rotate(90deg); margin: 10px auto; }
