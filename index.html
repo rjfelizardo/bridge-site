@@ -189,34 +189,45 @@ nav a:hover { color: var(--navy); }
 /* Card do app flutuante no hero, com glow */
 .hero-app {
   position: absolute;
-  top: 150px; right: 6%;
-  width: 250px;
+  top: 130px; right: 5%;
+  width: 280px;
   z-index: 1;
   text-align: center;
 }
 .hero-app-glow {
   position: absolute;
-  top: -30px; left: 50%;
+  top: -90px; left: 50%;
   transform: translateX(-50%);
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(200,184,154,.55) 0%, rgba(200,184,154,0) 70%);
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(200,184,154,.9) 0%, rgba(200,184,154,.45) 40%, rgba(200,184,154,0) 72%);
+  filter: blur(18px);
   z-index: -1;
   border-radius: 50%;
   pointer-events: none;
 }
-.hero-phone {
-  background: var(--navy);
-  border-radius: 26px;
+.hero-app-phones {
+  position: relative;
+  width: 100%;
+  height: 320px;
+}
+.hero-app-phones img {
+  position: absolute;
+  width: 155px;
+  border-radius: 20px;
   border: 3px solid rgba(255,255,255,.15);
-  padding: 22px 16px 16px;
-  box-shadow: 0 24px 60px rgba(0,0,0,.4);
-  text-align: left;
+  box-shadow: 0 24px 50px rgba(0,0,0,.45);
 }
-.hero-phone-notch {
-  width: 46px; height: 5px; background: rgba(255,255,255,.2);
-  border-radius: 3px; margin: 0 auto 16px;
+.hero-app-phones .phone-back {
+  top: 0; left: 10px;
+  transform: rotate(-7deg);
+  z-index: 1;
 }
-.hero-app-cta { margin-top: 22px; }
+.hero-app-phones .phone-front {
+  top: 55px; right: 5px;
+  z-index: 2;
+  transform: rotate(6deg);
+}
+.hero-app-cta { margin-top: 12px; }
 .hero-app-cta p {
   color: #fff; font-family: 'Cormorant Garamond', serif; font-style: italic;
   font-size: 1.05rem; line-height: 1.5; margin-bottom: 16px;
@@ -570,7 +581,7 @@ input:focus { border-color: var(--navy); }
   .hamburger { display: flex; }
   .hero { padding: 120px 6% 70px; background-position: 65% center; flex-direction: column; align-items: flex-start; gap: 48px; }
   .hero::before { background: linear-gradient(180deg, rgba(30,45,61,.55) 0%, rgba(30,45,61,.9) 65%, rgba(30,45,61,.95) 100%); }
-  .hero-app { position: static; width: 100%; max-width: 260px; margin: 0 auto; }
+  .hero-app { position: static; width: 100%; max-width: 280px; margin: 0 auto; }
   .banks { grid-template-columns: 1fr; }
   .bridge-arrow { transform: rotate(90deg); margin: 10px auto; }
   .steps-flow { flex-direction: column; gap: 32px; align-items: center; }
@@ -635,22 +646,9 @@ input:focus { border-color: var(--navy); }
 
   <div class="hero-app">
     <div class="hero-app-glow"></div>
-    <div class="hero-phone">
-      <div class="hero-phone-notch"></div>
-      <div class="app-screen-title" style="font-size:1.05rem;">Minha Travessia</div>
-      <div class="app-screen-sub" style="font-size:.68rem; margin-bottom:18px;">Diagnóstico → sua trilha ideal</div>
-      <div class="app-progress" style="padding:12px; margin-bottom:10px;">
-        <div class="progress-label" style="font-size:.65rem;"><span>Organização</span><span>🏡</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
-      </div>
-      <div class="app-progress" style="padding:12px; margin-bottom:10px;">
-        <div class="progress-label" style="font-size:.65rem;"><span>Relacionamentos</span><span>🤝</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
-      </div>
-      <div class="app-progress" style="padding:12px;">
-        <div class="progress-label" style="font-size:.65rem;"><span>Gestão Financeira</span><span>💰</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
-      </div>
+    <div class="hero-app-phones">
+      <img src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-app-phone-1.png" alt="Tela inicial do app Bridge, com o progresso da travessia" class="phone-back">
+      <img src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-app-phone-2.png" alt="Trilha de Relacionamentos no app Bridge" class="phone-front">
     </div>
     <div class="hero-app-cta">
       <p>Leve sua travessia com você</p>
