@@ -23,7 +23,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-y: scroll; overflow-x: hidden; }
 
 body {
   font-family: 'Inter', sans-serif;
@@ -179,7 +179,10 @@ nav a:hover { color: var(--navy); }
   .travessia { background: rgba(30,45,61,.75); }
   .metodo { background: rgba(245,240,232,.88); }
   .biblioteca { background: rgba(253,252,250,.88); }
+  #app h2.display { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+  #app .app-intro-text { color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.3); }
 }
+.app-intro-text { color: var(--muted); }
 
 .eyebrow {
   font-size: .78rem; font-weight: 600; letter-spacing: .18em;
@@ -649,7 +652,6 @@ input:focus { border-color: var(--navy); }
   <nav>
     <a href="#metodo" class="nav-hide-mobile">O Método</a>
     <a href="#biblioteca" class="nav-hide-mobile">Conteúdo</a>
-    <a href="https://app.bridgeatravessia.com.br/cadastro" target="_blank" class="btn btn-outline" style="padding:9px 16px; font-size:.72rem; white-space:nowrap; border-width:2px;">App Bridge</a>
   </nav>
   <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -660,7 +662,6 @@ input:focus { border-color: var(--navy); }
     <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
     <a href="#metodo" onclick="document.getElementById('mobileMenu').classList.remove('open')">O Método</a>
     <a href="#biblioteca" onclick="document.getElementById('mobileMenu').classList.remove('open')">Conteúdo</a>
-    <a href="https://app.bridgeatravessia.com.br/cadastro" target="_blank">App Bridge</a>
   </div>
   <nav style="display:none"></nav>
 </header>
@@ -840,7 +841,7 @@ input:focus { border-color: var(--navy); }
     <div>
       <span class="section-tag">O Aplicativo</span>
       <h2 class="display">Tudo que você precisa,<br>na palma da mão.</h2>
-      <p style="color:var(--muted); line-height:1.75; max-width:480px;">
+      <p class="app-intro-text" style="line-height:1.75; max-width:480px;">
         Do diagnóstico inicial às trilhas de transformação, a plataforma Bridge acompanha cada passo da sua jornada — com conteúdo, comunidade e mentoria especializada.
       </p>
       <div class="app-features">
