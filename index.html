@@ -164,8 +164,21 @@ nav a:hover { color: var(--navy); }
 
 .hero-text { max-width: 580px; position: relative; z-index: 1; }
 
+/* Camada de fundo fixa (parallax), compartilhada por várias seções — só em telas maiores */
+.parallax-bg { display: none; }
 @media (min-width: 900px) {
-  .hero { background-attachment: fixed; }
+  .parallax-bg {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-hero.jpg') center/cover no-repeat;
+    background-color: var(--navy);
+  }
+  .hero { background: none; }
+  .travessia { background: rgba(30,45,61,.75); }
+  .metodo { background: rgba(245,240,232,.88); }
+  .biblioteca { background: rgba(253,252,250,.88); }
 }
 
 .eyebrow {
@@ -624,6 +637,8 @@ input:focus { border-color: var(--navy); }
 </style>
 </head>
 <body>
+<div class="parallax-bg" aria-hidden="true"></div>
+
 
 <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 <header id="header">
