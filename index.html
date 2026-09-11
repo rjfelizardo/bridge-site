@@ -164,24 +164,7 @@ nav a:hover { color: var(--navy); }
 
 .hero-text { max-width: 580px; position: relative; z-index: 1; }
 
-/* Camada de fundo fixa (parallax), compartilhada por várias seções — só em telas maiores */
 .parallax-bg { display: none; }
-@media (min-width: 900px) {
-  .parallax-bg {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: url('https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-hero.jpg') center/cover no-repeat;
-    background-color: var(--navy);
-  }
-  .hero { background: none; }
-  .travessia { background: rgba(30,45,61,.75); }
-  .metodo { background: rgba(245,240,232,.88); }
-  .biblioteca { background: rgba(253,252,250,.88); }
-  #app h2.display { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
-  #app .app-intro-text { color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.3); }
-}
 .app-intro-text { color: var(--muted); }
 
 .eyebrow {
@@ -636,6 +619,25 @@ input:focus { border-color: var(--navy); }
   }
   nav .btn { padding: 7px 9px !important; font-size: .6rem !important; }
   .eyebrow { font-size: .7rem; letter-spacing: 1px; }
+}
+
+/* Camada de fundo fixa (parallax), compartilhada por várias seções — só em telas maiores.
+   Fica no fim do CSS de propósito, pra vencer as regras normais de fundo de cada seção. */
+@media (min-width: 900px) {
+  .parallax-bg {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-hero.jpg') 38% center/cover no-repeat;
+    background-color: var(--navy);
+  }
+  .hero { background: none; }
+  .travessia { background: rgba(30,45,61,.75); }
+  .metodo { background: rgba(245,240,232,.88); }
+  .biblioteca { background: rgba(253,252,250,.88); }
+  #app h2.display { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+  #app .app-intro-text { color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.3); }
 }
 </style>
 </head>
