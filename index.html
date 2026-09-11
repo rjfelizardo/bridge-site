@@ -596,7 +596,7 @@ input:focus { border-color: var(--navy); }
   .hamburger { display: flex; }
   .hero { padding: 120px 6% 70px; background-position: 38% center; flex-direction: column; align-items: flex-start; gap: 48px; }
   .hero::before { background: linear-gradient(180deg, rgba(30,45,61,.6) 0%, rgba(30,45,61,.9) 65%, rgba(30,45,61,.95) 100%); }
-  .hero-app { position: static; width: 100%; max-width: 280px; margin: 0 auto; }
+  .hero-app { position: relative; top: auto; right: auto; width: 100%; max-width: 280px; margin: 0 auto; }
   .banks { grid-template-columns: 1fr; }
   .bridge-arrow { transform: rotate(90deg); margin: 10px auto; }
   .steps-flow { flex-direction: column; gap: 32px; align-items: center; }
@@ -633,9 +633,9 @@ input:focus { border-color: var(--navy); }
     background-color: var(--navy);
   }
   .hero { background: none; }
-  .travessia { background: rgba(30,45,61,.75); }
-  .metodo { background: rgba(245,240,232,.88); }
-  .biblioteca { background: rgba(253,252,250,.88); }
+  .travessia { background: linear-gradient(180deg, rgba(30,45,61,.15) 0, rgba(30,45,61,.78) 260px, rgba(30,45,61,.78) 100%); }
+  .metodo { background: linear-gradient(180deg, rgba(30,45,61,.78) 0, rgba(245,240,232,.9) 220px, rgba(245,240,232,.9) 100%); }
+  .biblioteca { background: linear-gradient(180deg, rgba(245,240,232,.9) 0, rgba(253,252,250,.9) 180px, rgba(253,252,250,.9) 100%); }
   #app h2.display { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
   #app .app-intro-text { color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.3); }
 }
@@ -671,7 +671,7 @@ input:focus { border-color: var(--navy); }
 <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 <section class="hero">
   <div class="hero-text">
-    <p class="eyebrow">Mentoria · Transformação · A Travessia · Comunidade</p>
+    <p class="eyebrow">Mentoria · Transformação · Comunidade</p>
     <h1>A ponte entre o caos e uma vida <em>mais leve.</em></h1>
     <p class="hero-sub">
       Bridge é uma plataforma de mentoria em áreas específicas. A Bridge traz o método A Travessia, que te acompanha em uma jornada de transformação. Nós te ajudamos a chegar até o outro lado e encontrar a pessoa que você realmente deseja ser.
