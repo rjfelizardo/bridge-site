@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bridge — A Travessia</title>
+<link rel="icon" type="image/webp" href="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-logo-256.webp">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -657,8 +658,8 @@ input:focus { border-color: var(--navy); }
 
 <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 <header id="header">
-  <a href="#" class="logo" style="text-decoration:none; display:block;">
-    <img src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/Logo_bridge.png" alt="Bridge" style="height:72px; width:auto; display:block; margin-top:8px;" />
+  <a href="#" class="logo" style="text-decoration:none; display:flex; align-items:center; gap:10px;">
+    <img src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-logo-256.webp" alt="Bridge" style="height:48px; width:48px; display:block;" />
   </a>
   <span style="position:absolute; left:50%; transform:translateX(-50%); font-family:'Inter',sans-serif; font-size:.65rem; font-weight:400; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);">Mentoria</span>
   <nav>
@@ -1001,58 +1002,13 @@ input:focus { border-color: var(--navy); }
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
 <footer>
-  <canvas id="footer-logo" style="height:100px; width:auto; display:block;"></canvas>
+  <img
+    src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-logo-256.webp"
+    alt="Bridge"
+    style="height:88px; width:88px; display:block;"
+  />
   <p style="font-size:.75rem; color:rgba(255,255,255,.5);">© 2025 Bridge. Todos os direitos reservados.</p>
 </footer>
-<script>
-(function() {
-  const img = new Image();
-  img.crossOrigin = 'anonymous';
-  img.src = 'https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/Logo_bridge.png';
-  img.onload = function() {
-    const tmp = document.createElement('canvas');
-    tmp.width = img.naturalWidth;
-    tmp.height = img.naturalHeight;
-    const ctx = tmp.getContext('2d');
-    ctx.drawImage(img, 0, 0);
-    const data = ctx.getImageData(0, 0, tmp.width, tmp.height).data;
-
-    let top = tmp.height, bottom = 0, left = tmp.width, right = 0;
-    for (let y = 0; y < tmp.height; y++) {
-      for (let x = 0; x < tmp.width; x++) {
-        const alpha = data[(y * tmp.width + x) * 4 + 3];
-        if (alpha > 10) {
-          if (y < top) top = y;
-          if (y > bottom) bottom = y;
-          if (x < left) left = x;
-          if (x > right) right = x;
-        }
-      }
-    }
-
-    const cropW = right - left + 1;
-    const cropH = bottom - top + 1;
-    const cropped = ctx.getImageData(left, top, cropW, cropH);
-
-    // Inverter para branco
-    for (let i = 0; i < cropped.data.length; i += 4) {
-      if (cropped.data[i + 3] > 10) {
-        cropped.data[i] = 255;
-        cropped.data[i+1] = 255;
-        cropped.data[i+2] = 255;
-      }
-    }
-
-    const canvas = document.getElementById('footer-logo');
-    canvas.width = cropW;
-    canvas.height = cropH;
-    const scale = 100 / cropH;
-    canvas.style.height = '100px';
-    canvas.style.width = (cropW * scale) + 'px';
-    canvas.getContext('2d').putImageData(cropped, 0, 0);
-  };
-})();
-</script>
 
 <!-- ═══════════════════════════ SCRIPTS ═══════════════════════════ -->
 <script>
