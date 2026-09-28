@@ -14,6 +14,7 @@
   --navy2:  #2C4158;
   --sand:   #C8B89A;
   --sand2:  #E8DDD0;
+  --gold:   #C9972E;
   --cream:  #F5F0E8;
   --white:  #FDFCFA;
   --text:   #2A2A2A;
@@ -71,7 +72,7 @@ nav { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--navy);
+  background: var(--gold);
   border-radius: 2px;
   transition: all .3s;
 }
@@ -93,22 +94,16 @@ nav { display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
 .mobile-menu a {
   font-size: .78rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--gold);
   text-decoration: none;
   letter-spacing: .1em;
   text-transform: uppercase;
   padding: 6px 0;
   text-align: right;
-  text-shadow: 0 1px 4px rgba(255,255,255,.8);
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
   transition: color .2s;
 }
-.mobile-menu a:hover { color: var(--sand); }
-.mobile-menu a:last-child {
-  background: transparent;
-  color: var(--sand);
-  border-radius: 0;
-  padding: 6px 0;
-}
+.mobile-menu a:hover { color: var(--navy); }
 .mobile-menu .close-btn { display: none; }
 nav a {
   font-size: .85rem; font-weight: 700; letter-spacing: .03em;
@@ -457,12 +452,47 @@ h2.display {
 /* ── Footer ── */
 footer {
   background: var(--navy); color: rgba(255,255,255,.5);
-  padding: 20px 7% 16px;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 6px;
+  padding: 44px 7% 20px;
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 28px;
+  max-width: 1100px; margin: 0 auto;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.footer-brand { display: flex; align-items: center; gap: 14px; }
+.footer-logo { height: 42px; width: 42px; display: block; flex-shrink: 0; }
+.footer-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 600; color: #fff;
+}
+.footer-brand-tag {
+  font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); margin-top: 3px;
+}
+.footer-links { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.footer-links a {
+  font-size: .78rem; color: rgba(255,255,255,.65); text-decoration: none;
+  letter-spacing: .02em; transition: color .2s;
+}
+.footer-links a:hover { color: var(--sand); }
+.footer-social { display: flex; align-items: center; gap: 16px; }
+.footer-social a {
+  color: rgba(255,255,255,.65); display: inline-flex;
+  transition: color .2s;
+}
+.footer-social a:hover { color: var(--sand); }
+.footer-bottom {
+  max-width: 1100px; margin: 0 auto; padding-top: 18px;
+  text-align: center;
 }
 footer p { font-size: .75rem; }
+
+@media (max-width: 640px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .footer-links { gap: 20px; }
+}
 
 /* ── Modal ── */
 .overlay {
@@ -1001,12 +1031,38 @@ input:focus { border-color: var(--navy); }
 
 <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
 <footer>
-  <img
-    src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-logo-256.webp"
-    alt="Bridge"
-    style="height:88px; width:88px; display:block;"
-  />
-  <p style="font-size:.75rem; color:rgba(255,255,255,.5);">© 2025 Bridge. Todos os direitos reservados.</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img
+        src="https://mlkhoibaqnvpkhziaidx.supabase.co/storage/v1/object/public/images/bridge-logo-256.webp"
+        alt="Bridge"
+        class="footer-logo"
+      />
+      <div>
+        <div class="footer-brand-name">Bridge — A Travessia</div>
+        <div class="footer-brand-tag">Mentoria · Transformação · Comunidade</div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://app.bridgeatravessia.com.br/privacidade" target="_blank">Política de Privacidade</a>
+      <a href="https://app.bridgeatravessia.com.br/termos" target="_blank">Termos de Uso</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.instagram.com/bridgeatravessia" target="_blank" rel="noopener noreferrer" aria-label="Bridge no Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Bridge. Todos os direitos reservados.</p>
+  </div>
 </footer>
 
 <!-- ═══════════════════════════ SCRIPTS ═══════════════════════════ -->
